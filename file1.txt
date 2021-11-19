@@ -1,1 +1,21 @@
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDWww/ccAMftMfp7mMw1pl31QpBq0wu9RrSeLQicWoUzaK2w1Hm3IyNY4zeqEPEZjHYSKx70eWdvnnnbirsCSkegocExfbY43eMadnNGNCOKjzH1wPPhPWiyTfenHZCR9CLJuzYVC5x6V8D3fGr0k47mkBNAqWnfqriJcTAgPIilZtvFizGt0JIXTzSkTPpN04N1sCnr80QHW1aqTel2YBmcdDbDPUDgb/tMJDm6xHx1kSf0fbOolTqFACY4mRxc5JY5Jlur70LZVL0GNL1vCy0ODYMhfGhFtlIDGMH1GRr1g0vA3tdOEy6eQh7FswQ2339mXaUiKKnrHHhhixgxC/T plabadmin@PLABLUBUNTU01
+---
+-  name: install apache & php & mysql
+   hosts: node1
+   become: true
+   become_user: root
+   gather_facts: true
+   tasks:
+   -  name: "install apache2
+      package: name=apache2 state=present
+   -  name: "install apache2-php"
+      package: name=libapache2-mod-php state=present
+   -  name: "install php-cli"
+      package: name=php-cli state=present
+   -  name: "install php-mcrypt"
+      package: name=php-mcrypt state=present
+   -  name: "install php.gd"
+      package: name=php.gd state=present
+   -  name: "install php-mysql"
+      package: name=php-mysql stae=present
+   -  name: "install mysqlserver"
+      package: name=mysql-server state=present
